@@ -28,4 +28,7 @@ async function fetchRecipes(searchTerm) {
     const response = await fetch(
         `https://dummyjson.com/recipes/search?q=${searchTerm}`
     );
+
+    // Omvandlar API till JSON
+    const data = await response.json();
 }
