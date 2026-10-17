@@ -20,4 +20,12 @@ form.addEventListener("submit", function(event) {
     }
 
     errorMessage.textContent = "";
+    console.log(searchTerm);
 })
+
+// Hämtar från API
+async function fetchRecipes(searchTerm) {
+    const response = await fetch(
+        `https://dummyjson.com/recipes/search?q=${searchTerm}`
+    );
+}
