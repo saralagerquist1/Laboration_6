@@ -20,15 +20,24 @@ form.addEventListener("submit", function(event) {
     }
 
     errorMessage.textContent = "";
-    console.log(searchTerm);
+    fetchRecipes(searchTerm);
 })
 
-// Hämtar från API
+// Hämtar från API:et
 async function fetchRecipes(searchTerm) {
-    const response = await fetch(
-        `https://dummyjson.com/recipes/search?q=${searchTerm}`
-    );
+    try {
+        const response = await fetch(`https://dummyjson.com/recipes/search?q=${searchTerm}`);
 
-    // Omvandlar API till JSON
-    const data = await response.json();
+        if (!response.ok) {
+            throw new Error("Kunde inte hämta recept");
+        }
+
+        const data = await response.json();
+
+        console.log(data);
+
+    } catch (error) {
+        console.error("Något gick fel:", error);
+    }
 }
+
