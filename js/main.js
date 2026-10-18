@@ -91,5 +91,42 @@ function displayRecipe(recipe) {
     image.alt = recipe.name;
     article.appendChild(image);
 
+    // Receptinformation
+    const recipeInfo = document.createElement("div");
+    recipeInfo.className = "recipe-info";
+    article.appendChild(recipeInfo);
+
+    // Portioner
+    const servings = document.createElement("p");
+    const servingsLabel = document.createElement("strong");
+    servingsLabel.textContent = "Servings: ";
+    servings.appendChild(servingsLabel);
+    servings.append(recipe.servings);
+    recipeInfo.appendChild(servings);
+
+    // Förberedelsetiden
+    const prepTime = document.createElement("p");
+    const prepTimeLabel = document.createElement("strong");
+    prepTimeLabel.textContent = "Prep time: ";
+    prepTime.appendChild(prepTimeLabel);
+    prepTime.append(`${recipe.prepTimeMinutes} minutes`);
+    recipeInfo.appendChild(prepTime);
+
+    // Tillagningstiden
+    const cookTime = document.createElement("p");
+    const cookTimeLabel = document.createElement("strong");
+    cookTimeLabel.textContent = "Cooking time: ";
+    cookTime.appendChild(cookTimeLabel);
+    cookTime.append(`${recipe.cookTimeMinutes} minutes`);
+    recipeInfo.appendChild(cookTime);
+
+    // Svårighetsgraden
+    const difficulty = document.createElement("p");
+    const difficultyLabel = document.createElement("strong");
+    difficultyLabel.textContent = "Difficulty: ";
+    difficulty.appendChild(difficultyLabel);
+    difficulty.append(recipe.difficulty);
+    recipeInfo.appendChild(difficulty);
+
     
 }
