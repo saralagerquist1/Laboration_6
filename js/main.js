@@ -11,11 +11,10 @@ const recipeSection = document.querySelector("#recipe");
 const message = document.querySelector("#message");
 
 // Validering av sökformulär
-// Validering av sökformulär
 form.addEventListener("submit", function (event) {
     event.preventDefault();
 
-    // Hämtar sökfrasen och tar bort extra mellanslag
+    // Hämtar sökfrasen
     const searchTerm = searchInput.value.trim();
 
     // Kontrollerar att sökfrasen inte är tom
@@ -27,9 +26,10 @@ form.addEventListener("submit", function (event) {
     // Tar bort tidigare felmeddelande
     errorMessage.textContent = "";
 
-    // Hämtar recept från API:et
+    // Sökning efter recept
     fetchRecipes(searchTerm);
 });
+
 
 // Hämtar recept från API:et
 async function fetchRecipes(searchTerm) {
@@ -68,7 +68,7 @@ async function fetchRecipes(searchTerm) {
         console.error("Något gick fel:", error);
         
         message.textContent =
-            "Could not fetch recipes. Please try again later.";
+            "Kunde inte hämta recept. Försök igen senare.";
 
         recipeSection.innerHTML = "";
     }
