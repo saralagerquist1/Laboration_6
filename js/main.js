@@ -144,7 +144,19 @@ function displayRecipe(recipe) {
         ingredientsList.appendChild(listItem);
     });
 
-    
+    // Rubrik för instruktioner
+    const instructionsHeading = document.createElement("h4");
+    instructionsHeading.textContent = "Instructions";
+    article.appendChild(instructionsHeading);
 
-    
+    // Numrerad lista för instruktioner
+    const instructionsList = document.createElement("ol");
+    article.appendChild(instructionsList);
+
+    // Instruktioner i listan
+    recipe.instructions.forEach(function (instruction) {
+        const listItem = document.createElement("li");
+        listItem.textContent = instruction;
+        instructionsList.appendChild(listItem);
+    });
 }
