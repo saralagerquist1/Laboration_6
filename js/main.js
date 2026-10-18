@@ -128,5 +128,23 @@ function displayRecipe(recipe) {
     difficulty.append(recipe.difficulty);
     recipeInfo.appendChild(difficulty);
 
+    // Rubrik för ingredienser
+    const ingredientsHeading = document.createElement("h4");
+    ingredientsHeading.textContent = "Ingredients";
+    article.appendChild(ingredientsHeading);
+
+    // Punktlista för ingredienser
+    const ingredientsList = document.createElement("ul");
+    article.appendChild(ingredientsList);
+
+    // Lägger till varje ingrediens i listan
+    recipe.ingredients.forEach(function (ingredient) {
+        const listItem = document.createElement("li");
+        listItem.textContent = ingredient;
+        ingredientsList.appendChild(listItem);
+    });
+
+    
+
     
 }
